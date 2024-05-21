@@ -1,50 +1,50 @@
 package stepDefintion;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 
+import factory.LoginPageFactory;
+import basePage.BasePage;
+import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.ScreenshotUtility;
 
 public class TestSteps {
-	
-	WebDriver driver;
+    
+    public WebDriver driver;
+    private LoginPageFactory loginPage;  // Reference to the LoginPage
 
-	@Given("user is on the login page")
-	public void user_is_on_the_login_page() {
-        // Setup the ChromeDriver using WebDriverManager
-        WebDriverManager.chromedriver().setup();
-        driver= new ChromeDriver();
-            
+    @Given("user is on the login page")
+    public void user_is_on_the_login_page() {
+        
+        driver = BasePage.getDriver("edge");
         driver.get("https://practicetestautomation.com/practice-test-login/");
+        loginPage = new LoginPageFactory(driver); // Initialize the login page object
+    }
 
-	}
+    @When("user enters valid username and password")
+    public void user_enters_valid_username_and_password() {
+        loginPage.enterUsername("student");
+        loginPage.enterPassword("Password123");
+    }
 
-	@When("user enters valid username and password")
-	public void user_enters_valid_username_and_password() {
-		driver.findElement(By.xpath("//*[@id='username']")).sendKeys("student");
-		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("Password123");
-		
-		
-	}
+    @When("user clicks on login button")
+    public void user_clicks_on_login_button() {
+        loginPage.clickLoginButton();
+    }
 
-	@When("user clicks on login button")
-	public void user_clicks_on_login_button() {
-
-		driver.findElement(By.xpath("//*[@id='submit']")).click();
-	}
-
-	@Then("user is navigated to the dashboard page")
-	public void user_is_navigated_to_the_dashboard_page() {
-	    String expectedUrl = "https://practicetestautomation.com/logged-in-successfully/"; 
-	    String actualUrl = driver.getCurrentUrl();
-	    Assert.assertEquals(actualUrl, expectedUrl, "User is not on the expected login page URL.");
-	    
-	    driver.quit();
-	}
-
+    @Then("user is navigated to the dashboard page")
+    public void user_is_navigated_to_the_dashboard_page() {
+        String expectedUrl = "https://practicetestautomation.com/logged-in-successfully/";
+        String actualUrl = loginPage.getCurrentUrl();
+        try {
+            Assert.assertEquals(actualUrl, expectedUrl, "User is not on the expected login page URL.");
+        } catch (AssertionError e) {
+            ScreenshotUtility.takeScreenshot(driver, "screenshots/failure-screenshot.png");
+            throw e;  // Rethrow to allow Cucumber to handle the failure
+        } finally {
+            driver.quit();
+        }
+    }
 }
