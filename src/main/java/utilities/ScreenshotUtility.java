@@ -19,3 +19,8 @@ public class ScreenshotUtility {
         }
     }
 }
+/*The Screenshot class provides a utility method takeScreenshot to capture
+ *  a screenshot of the current state of the browser represented by the 
+ *  WebDriver instance and save it to the specified file path. 
+ *  The method handles the creation of necessary directories and
+ *   manages exceptions that might occur during the file operations.*/

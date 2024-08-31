@@ -11,7 +11,7 @@ public class LoginPageFactory {
 
     // Locators using @FindBy
     @FindBy(id = "username")
-    private WebElement usernameField;
+    private WebElement usernameField;//initializing private webElement
 
     @FindBy(id = "password")
     private WebElement passwordField;
@@ -19,15 +19,15 @@ public class LoginPageFactory {
     @FindBy(id = "submit")
     private WebElement loginButton;
 
-    // Constructor
+    // Constructor get implicitly invoked and initialize the WebElements
     public LoginPageFactory(WebDriver driver) {
         this.driver = driver;
         // Initialize elements with PageFactory
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, this);//initialize xpath with driver,driver will never be null or empty
     }
 
     // Page Actions
-    public void enterUsername(String username) {
+    public void enterUsername(String username) { //public method is created using private variable this is getter method
         usernameField.sendKeys(username);
     }
 

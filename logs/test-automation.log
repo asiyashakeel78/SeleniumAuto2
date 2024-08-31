@@ -1,0 +1,15 @@
+2024-05-21 20:49:22 [main] INFO  utilities.LoggerUtility - Starting a new test scenario.
+2024-05-21 20:49:25 [main] INFO  utilities.LoggerUtility - WebDriver has been initialized successfully.
+2024-05-21 20:49:30 [main] INFO  utilities.LoggerUtility - WebDriver has been closed.
+2024-05-31 21:36:07 [main] INFO  utilities.LoggerUtility - Starting a new test scenario.
+2024-05-31 21:36:26 [main] INFO  utilities.LoggerUtility - WebDriver has been initialized successfully.
+2024-05-31 21:36:31 [main] INFO  utilities.LoggerUtility - WebDriver has been closed.
+2024-05-31 21:43:32 [main] INFO  utilities.LoggerUtility - Starting a new test scenario.
+2024-05-31 21:43:34 [main] INFO  utilities.LoggerUtility - WebDriver has been initialized successfully.
+2024-05-31 21:43:39 [main] INFO  utilities.LoggerUtility - WebDriver has been closed.
+2024-05-31 21:45:07 [main] INFO  utilities.LoggerUtility - Starting a new test scenario.
+2024-05-31 21:45:08 [main] INFO  utilities.LoggerUtility - WebDriver has been initialized successfully.
+2024-05-31 21:45:13 [main] INFO  utilities.LoggerUtility - WebDriver has been closed.
+2024-05-31 21:45:49 [main] INFO  utilities.LoggerUtility - Starting a new test scenario.
+2024-05-31 21:45:50 [main] INFO  utilities.LoggerUtility - WebDriver has been initialized successfully.
+2024-05-31 21:45:55 [main] INFO  utilities.LoggerUtility - WebDriver has been closed.
